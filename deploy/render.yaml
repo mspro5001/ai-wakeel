@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: ai-wakeel
+    env: node
+    buildCommand: npm install && cd client && npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: EMAIL_USER
+        value: islamsaib100@gmail.com
+      - key: EMAIL_PASS
+        sync: false
+      - key: NVIDIA_NIM_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: TIKTOK_CLIENT_KEY
+        sync: false
+      - key: TIKTOK_CLIENT_SECRET
+        sync: false
+      - key: CONTENTREWARDS_USERNAME
+        sync: false
+      - key: CONTENTREWARDS_PASSWORD
+        sync: false

@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: ai-wakeel
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install && cd client && npm install && npm run build
+    startCommand: node server/app.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+      - key: RENDER_EXTERNAL_URL
+        fromService:
+          type: web
+          name: ai-wakeel
+          property: url
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: TIKTOK_CLIENT_KEY
+        sync: false
+      - key: TIKTOK_CLIENT_SECRET
+        sync: false
+      - key: TIKTOK_ACCESS_TOKEN
+        sync: false
+      - key: CONTENTREWARDS_USERNAME
+        sync: false
+      - key: CONTENTREWARDS_PASSWORD
+        sync: false
+      - key: NVIDIA_NIM_API_KEY
+        sync: false
+      - key: JWT_SECRET
+        sync: false

@@ -1,0 +1,38 @@
+{
+  "name": "ai-agent-wakeel",
+  "version": "2.0.0",
+  "description": "وكيل ذكاء اصطناعي متكامل - AI Agent with Video, WhatsApp, Email, TikTok, Contentrewards",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "node --watch server/app.js",
+    "client": "cd client && npm run dev",
+    "install:all": "npm install && cd client && npm install",
+    "setup": "node server/setup.js",
+    "deploy": "cd deploy && node deploy.js"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.4",
+    "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.1",
+    "fluent-ffmpeg": "^2.1.3",
+    "helmet": "^7.1.0",
+    "imap": "^0.8.19",
+    "jsonwebtoken": "^9.0.2",
+    "mailparser": "^3.7.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.15",
+    "puppeteer": "^23.4.0",
+    "socket.io": "^4.7.5",
+    "sql.js": "^1.10.3",
+    "telegraf": "^4.16.3",
+    "uuid": "^10.0.0"
+  }
+}

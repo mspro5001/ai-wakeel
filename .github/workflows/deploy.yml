@@ -1,0 +1,23 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install && cd client && npm install
+      - name: Build client
+        run: cd client && npm run build
+      - name: Deploy to Railway
+        run: npx @railway/cli up --service ai-wakeel
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}

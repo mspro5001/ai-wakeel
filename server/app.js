@@ -17,7 +17,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: config.nodeEnv === 'production' ? false : '*',
+    origin: config.nodeEnv === 'production' ? (process.env.CLIENT_URL || true) : '*',
     methods: ['GET', 'POST'],
   },
   pingTimeout: 60000,

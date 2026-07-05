@@ -15,7 +15,7 @@ COPY package*.json ./
 RUN npm install --production
 
 COPY client/package*.json client/
-RUN cd client && npm install --production && cd ..
+RUN cd client && npm install && cd ..
 
 COPY . .
 
